@@ -70,5 +70,6 @@ public class Player {
 	 */
 	public String toString() {
 		return "Name: "+name+"ID: "+ id+ "Number of Wins: "+ numOfWins;
+		//returns the players information that they currently have saved Name,ID and number of wins
 	}
 }
