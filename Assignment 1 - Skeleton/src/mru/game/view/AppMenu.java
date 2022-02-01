@@ -24,9 +24,9 @@ public class AppMenu {
 	 */
 	public int showMainMenu() {
 		System.out.println("Select one of the options below:\n");
-		System.out.println("\t. Play Game");
-		System.out.println("\t. Search");
-		System.out.println("\t. Save and Exit\n");
+		System.out.println("\t1. Play Game");
+		System.out.println("\t2. Search");
+		System.out.println("\t3. Save and Exit\n");
 		System.out.print("Enter a number here: ");
 		//prints out users options to choose from 
 		int option = input.nextInt();
