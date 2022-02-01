@@ -66,7 +66,7 @@ public class GameManager {
 		
 	}
 
-	private void Search() {
+	private void Search() throws IOException {
 		char option=appMenu.showSubMenu();
 		switch (option) {
 		case 't':
@@ -77,6 +77,7 @@ public class GameManager {
 			appMenu.showPlayer(ply);
 			break;
 		case 'b':
+			launchApplication();
 			break;
 		
 		default:
