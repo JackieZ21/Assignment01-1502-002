@@ -2,6 +2,8 @@ package mru.game.view;
 
 import java.util.Scanner;
 
+import mru.game.model.Player;
+
 public class AppMenu {
 
 	/**
@@ -20,24 +22,28 @@ public class AppMenu {
 	/**
 	 * this method shows the main menu which gives the user options to choose from 
 	 */
-	public void showMainMenu() {
+	public int showMainMenu() {
 		System.out.println("Select one of the options below:\n");
 		System.out.println("\t. Play Game");
 		System.out.println("\t. Search");
 		System.out.println("\t. Save and Exit\n");
 		System.out.print("Enter a number here: ");
 		//prints out users options to choose from 
+		int option = input.nextInt();
+		return option;
 	}
 	/**
 	 * this method prints out the subMenu which gives the user more options to choose form
 	 */
-	public void showSubMenu() {
+	public char showSubMenu() {
 		System.out.println("Select one of the options below:\n");
 		System.out.println("\t(T) Top Player");
 		System.out.println("\t(S) Search by Name");
 		System.out.println("\t(B) Back to Main Menu \n");
 		System.out.print("Enter a number here: ");
 		//Prints out the users choices in the subMenu
+		char option=input.nextLine().toLowerCase().charAt(0);
+		return option;
 	}
 	/**
 	 * this method prompts the user to enter a name and then later 
@@ -46,10 +52,18 @@ public class AppMenu {
 	public String prompName() {
 		System.out.println("Enter a name here: ");
 		//prompt user to enter name
-		String name=input.nextLine();
+		String name=input.nextLine().trim();
 		//save the name into name variable
 		return name;
 		//return the users name
 		
+	}
+	/**
+	 * method prints out the player
+	 * @param ply
+	 */
+	public void showPlayer(Player ply) {
+		System.out.println(ply);
+		//print out the player
 	}
 }

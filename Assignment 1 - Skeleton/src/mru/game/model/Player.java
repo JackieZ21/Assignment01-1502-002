@@ -72,4 +72,12 @@ public class Player {
 		return "Name: "+name+"ID: "+ id+ "Number of Wins: "+ numOfWins;
 		//returns the players information that they currently have saved Name,ID and number of wins
 	}
+	/**
+	 * this method returns the users information
+	 * @return user info in correct format
+	 */
+	public String format() {
+		return name + ";"+id+":"+numOfWins;
+		//return the information which is in the correct format
+	}
 }
