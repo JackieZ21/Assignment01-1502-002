@@ -111,6 +111,7 @@ public class GameManager {
 		for (Player p : players) {
 			pw.println(p.format());
 		}
+		System.out.println("saved");
 		pw.close();
 	}
 
