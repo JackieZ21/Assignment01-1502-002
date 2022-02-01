@@ -24,12 +24,12 @@ public class AppMenu {
 	 */
 	public int showMainMenu() {
 		System.out.println("Select one of the options below:\n");
-		System.out.println("\t1. Play Game");
-		System.out.println("\t2. Search");
-		System.out.println("\t3. Save and Exit\n");
-		System.out.print("Enter a number here: ");
+		System.out.println("\t(P). Play Game");
+		System.out.println("\t(S). Search");
+		System.out.println("\t(E). Save and Exit\n");
+		System.out.print("Enter a letter here: ");
 		//prints out users options to choose from 
-		int option = input.nextInt();
+		char option = input.nextLine().toLowerCase().charAt(0);
 		return option;
 	}
 	/**
@@ -40,7 +40,7 @@ public class AppMenu {
 		System.out.println("\t(T) Top Player");
 		System.out.println("\t(S) Search by Name");
 		System.out.println("\t(B) Back to Main Menu \n");
-		System.out.print("Enter a number here: ");
+		System.out.print("Enter a letter here: ");
 		//Prints out the users choices in the subMenu
 		char option=input.nextLine().toLowerCase().charAt(0);
 		return option;
