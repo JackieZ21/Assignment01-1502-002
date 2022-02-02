@@ -89,7 +89,6 @@ public class GameManager {
 	private Player searchByName() {
 		String name=appMenu.prompName();
 		Player ply=null;
-		
 		for (Player p :players) {
 			if(p.getName().equals(name)) {
 				ply=p;
@@ -111,7 +110,7 @@ public class GameManager {
 		for (Player p : players) {
 			pw.println(p.format());
 		}
-		System.out.println("saved");
+		System.out.println("saved, thank you for playing");
 		pw.close();
 	}
 
