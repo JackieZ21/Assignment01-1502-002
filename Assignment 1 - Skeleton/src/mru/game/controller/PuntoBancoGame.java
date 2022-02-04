@@ -10,10 +10,18 @@ public class PuntoBancoGame {
 	 * See the instructions for the game rules
 	 */
 	GameMenu gm;
-	
+	CardDeck cd;
 	public PuntoBancoGame() {
+		gm=new GameMenu();
+		launchGame();
+	}
+	
+	
+	public void launchGame() {
+		String betPBT;
 		
+		 betPBT=gm.showGameMenu();
+		 
 		
 	}
-
 }

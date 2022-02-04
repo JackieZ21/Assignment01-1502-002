@@ -27,11 +27,10 @@ public class GameManager {
 	// create the scanner object
 	Scanner fileReader;
 	AppMenu appMenu;
-	final int INIT_WINS=0;
-	final int INIT_BALANCE=100;
-	double runningBalance;
+	private final int INIT_WINS = 0;
+	private final int INIT_BALANCE = 100;
+	private double runningBalance;
 	PuntoBancoGame pb;
-	
 
 	public GameManager() throws Exception {
 		// instantiate the arraylist here
@@ -40,79 +39,80 @@ public class GameManager {
 		appMenu = new AppMenu();
 		// instantiate the appMenu
 		loadData();
-		//create the file 
+		// create the file
 		launchApplication();
-		//shows the main menu
+		// shows the main menu
 	}
 
 	private void launchApplication() throws IOException {
 		boolean flag = true;
-		char option=(char)appMenu.showMainMenu();
+		char option = (char) appMenu.showMainMenu();
 		while (flag) {
-			
-			
+
 			switch (option) {
 			case 'p':
-				playGame();							
+				playGame();
 				break;
 			case 's':
 				Search();
 				break;
 			case 'e':
 				Save();
-				flag=false;
-			
+				flag = false;
+
 			}
 		}
 	}
+
 	/**
-	 * this method prompts the user with a name 
-	 * searches for the users name
+	 * this method prompts the user with a name searches for the users name
 	 */
 	private void playGame() {
 		// TODO Auto-generated method stub
-		String name= appMenu.prompName();
+		String name = appMenu.prompName();
 		Player p = searchByName(name);
-		//search for the name
-		
-		if (p==null) {
-			
-			
-			players.add(new Player(name,INIT_BALANCE,INIT_WINS));
-			//create the player 
-			
+		// search for the name
+
+		if (p == null) {
+
+			players.add(new Player(name, INIT_BALANCE, INIT_WINS));
+			// create the player
+
+		}else {
+			System.out.println("Welcome back!");
+			System.out.print("Your balance is: "+runningBalance);
 		}
-		pb=new PuntoBancoGame();
-		
+		pb = new PuntoBancoGame();
+
 	}
 
 	private void Search() throws IOException {
-		char option=appMenu.showSubMenu();
+		char option = appMenu.showSubMenu();
 		switch (option) {
 		case 't':
 			FindTopPlayer();
 			break;
 		case 's':
-			String name=appMenu.prompName();
-			Player ply=searchByName(name);
+			String name = appMenu.prompName();
+			Player ply = searchByName(name);
 			appMenu.showPlayer(ply);
 			break;
 		case 'b':
 			launchApplication();
 			break;
-		
+
 		default:
 			break;
 		}
-		
+
 	}
 
 	private Player searchByName(String name) {
-		
-		Player ply=null;
-		for (Player p :players) {
-			if(p.getName().equals(name)) {
-				ply=p;
+
+		Player ply = null;
+		for (Player p : players) {
+			if (p.getName().equals(name)) {
+				ply = p;
 				break;
 			}
 		}
@@ -121,7 +121,7 @@ public class GameManager {
 
 	private void FindTopPlayer() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void Save() throws IOException {
@@ -147,7 +147,8 @@ public class GameManager {
 				// read the file
 				splittedLine = currentLine.split(";");
 				// read the lines split with semi colon
-				Player p = new Player(splittedLine[0], Integer.parseInt(splittedLine[1]), Integer.parseInt(splittedLine[2]));
+				Player p = new Player(splittedLine[0], Integer.parseInt(splittedLine[1]),
+						Integer.parseInt(splittedLine[2]));
 				// creates new object for player
 				players.add(p);
 				// add the input into the array list
