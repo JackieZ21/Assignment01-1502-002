@@ -13,14 +13,22 @@ public class PuntoBancoGame {
 	CardDeck cd;
 	public PuntoBancoGame() {
 		gm=new GameMenu();
-		launchGame();
+		launchTGame();
 	}
 	
 	
-	public void launchGame() {
+	public boolean launchTGame() {
 		String betPBT;
+		int betAmount;
+		boolean win=false;
 		
 		 betPBT=gm.showGameMenu();
+		 betAmount=gm.setBets();
+		 
+		 
+		return win;
+		 
+		 
 		 
 		
 	}

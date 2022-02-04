@@ -69,20 +69,27 @@ public class GameManager {
 	 */
 	private void playGame() {
 		// TODO Auto-generated method stub
+
 		String name = appMenu.prompName();
+
 		Player p = searchByName(name);
 		// search for the name
 
 		if (p == null) {
 
 			players.add(new Player(name, INIT_BALANCE, INIT_WINS));
+			System.out.println("Welcome "+name+" Your initial balance is: $"+INIT_BALANCE);
 			// create the player
 
-		}else {
-			System.out.println("Welcome back!");
-			System.out.print("Your balance is: "+runningBalance);
-		}
+		} 
 		pb = new PuntoBancoGame();
+		boolean win=pb.launchTGame();
+		if (win) {
+			for(Player pl: players) {
+				int num=pl.getNumOfWins();
+				pl.setNumOfWins(num+1);
+			}
+		}
 
 	}
 

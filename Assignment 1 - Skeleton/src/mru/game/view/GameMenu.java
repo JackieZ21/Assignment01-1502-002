@@ -15,10 +15,25 @@ public class GameMenu {
 		System.out.println("\t(P) Player");
 		System.out.println("\t(B) Banker");
 		System.out.println("\t(T) Tie \n");
-		System.out.print("Enter a letter here: ");
+		System.out.print("Enter your choice here: ");
 		choicePBT=input.next();
 		
 		return choicePBT;
+		
+	}
+	public int setBets() {
+		int bet;
+		
+		do {
+			System.out.println("How much would you like to bet?: ");
+		    while (!input.hasNextInt()) {
+		        System.out.println("That's not a valid bet!");
+		        input.next(); // this is important!
+		    }
+		    bet = input.nextInt();
+		} while (bet <= 0);
+		
+		return bet;
 		
 	}
 	
