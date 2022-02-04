@@ -27,8 +27,11 @@ public class GameManager {
 	// create the scanner object
 	Scanner fileReader;
 	AppMenu appMenu;
-	final int initWins=0;
+	final int INIT_WINS=0;
+	final int INIT_BALANCE=100;
+	double runningBalance;
 	PuntoBancoGame pb;
+	
 
 	public GameManager() throws Exception {
 		// instantiate the arraylist here
@@ -74,9 +77,8 @@ public class GameManager {
 		
 		if (p==null) {
 			
-			String id=appMenu.promptID();
-			//prompt the user id 
-			players.add(new Player(name,id,initWins));
+			
+			players.add(new Player(name,INIT_BALANCE,INIT_WINS));
 			//create the player 
 			
 		}
@@ -145,7 +147,7 @@ public class GameManager {
 				// read the file
 				splittedLine = currentLine.split(";");
 				// read the lines split with semi colon
-				Player p = new Player(splittedLine[0], splittedLine[1], Integer.parseInt(splittedLine[2]));
+				Player p = new Player(splittedLine[0], Integer.parseInt(splittedLine[1]), Integer.parseInt(splittedLine[2]));
 				// creates new object for player
 				players.add(p);
 				// add the input into the array list

@@ -1,5 +1,6 @@
 package mru.game.controller;
 
+import mru.game.view.GameMenu;
 
 public class PuntoBancoGame {
 	
@@ -8,5 +9,11 @@ public class PuntoBancoGame {
 	 * You should use CardDeck class here
 	 * See the instructions for the game rules
 	 */
+	GameMenu gm;
+	
+	public PuntoBancoGame() {
+		
+		
+	}
 
 }

@@ -58,19 +58,7 @@ public class AppMenu {
 		//return the users name
 		
 	}
-	/**
-	 * this method prompts user to enter id and 
-	 * @return the id they input
-	 */
-	public String promptID() {
-		System.out.println("Enter your id here: ");
-		//prompt user to enter id 
-		String id=input.nextLine().trim();
-		//save the id into name variable
-		return id;
-		//return the users id
-		
-	}
+	
 	/**
 	 * method prints out the player
 	 * @param ply

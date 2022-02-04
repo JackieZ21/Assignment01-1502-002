@@ -7,12 +7,12 @@ public class Player {
 	 * It is basically a model class for each record in the txt file
 	 */
 	String name;
-	String id;
+	int balance;
 	int numOfWins;
 	
-	public Player(String name,String id, int numOfWins) {
+	public Player(String name,int balance, int numOfWins) {
 		this.name=name;;
-		this.id=id;
+		this.balance=balance;
 		this.numOfWins=numOfWins;
 		
 	}
@@ -36,18 +36,17 @@ public class Player {
 	 * this method sets the player id number in
 	 * @param id
 	 */
-	public void setId(String id) {
-		this.id=id;
-		//takes the most local variable of id and saves it into id 
+	public void setBalance(int balance) {
+		this.balance=balance;
+		//takes the most local variable of balance and saves it into balance
 	}
 	/**
 	 * this method returns the player id number
 	 * @return id number 
 	 */
-	public String getId() {
-		return id;
-		//return id number
-		
+	public int getBalance() {
+		return balance;
+		//return balance
 	}
 	/**
 	 * this method set the number of wins in the variable
@@ -66,18 +65,18 @@ public class Player {
 		//return the number of wins for the corresponding player
 	}
 	/**
-	 * this method returns the players informations such as name id and number of wins
+	 * this method returns the players informations such as name balance and number of wins
 	 */
 	public String toString() {
-		return "Name: "+name+"ID: "+ id+ "Number of Wins: "+ numOfWins;
-		//returns the players information that they currently have saved Name,ID and number of wins
+		return "Name: "+name+"ID: "+ balance+ "Number of Wins: "+ numOfWins;
+		//returns the players information that they currently have saved Name,balance and number of wins
 	}
 	/**
 	 * this method returns the users information
 	 * @return user info in correct format
 	 */
 	public String format() {
-		return name + ";"+id+":"+numOfWins;
+		return name + ";"+balance+":"+numOfWins;
 		//return the information which is in the correct format
 	}
 }
