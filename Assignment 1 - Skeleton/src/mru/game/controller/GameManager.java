@@ -27,6 +27,8 @@ public class GameManager {
 	// create the scanner object
 	Scanner fileReader;
 	AppMenu appMenu;
+	final int initWins=0;
+	PuntoBancoGame pb;
 
 	public GameManager() throws Exception {
 		// instantiate the arraylist here
@@ -60,9 +62,25 @@ public class GameManager {
 			}
 		}
 	}
-
+	/**
+	 * this method prompts the user with a name 
+	 * searches for the users name
+	 */
 	private void playGame() {
 		// TODO Auto-generated method stub
+		String name= appMenu.prompName();
+		Player p = searchByName(name);
+		//search for the name
+		
+		if (p==null) {
+			
+			String id=appMenu.promptID();
+			//prompt the user id 
+			players.add(new Player(name,id,initWins));
+			//create the player 
+			
+		}
+		pb=new PuntoBancoGame();
 		
 	}
 
@@ -73,7 +91,8 @@ public class GameManager {
 			FindTopPlayer();
 			break;
 		case 's':
-			Player ply=searchByName();
+			String name=appMenu.prompName();
+			Player ply=searchByName(name);
 			appMenu.showPlayer(ply);
 			break;
 		case 'b':
@@ -86,8 +105,8 @@ public class GameManager {
 		
 	}
 
-	private Player searchByName() {
-		String name=appMenu.prompName();
+	private Player searchByName(String name) {
+		
 		Player ply=null;
 		for (Player p :players) {
 			if(p.getName().equals(name)) {
