@@ -50,20 +50,7 @@ public class PuntoBancoGame {
 		//System.out.println(bankTotal);	
 		return bankTotal;
 	}	
-/**	
-	public int AddPlayCards(int playCard) {
-		int CardValue= playCard;
-		int playerTotal=0;
-		playerTotal+=CardValue;
-		return playerTotal;
-	}
-	
-	public int AddBankCards(int playCard) {
-		int CardValue= playCard;
-		int bankTotal=0;
-		bankTotal+=CardValue;
-		return bankTotal;
-	}*/
+
 	
 		public void cards(int playerTotal, int bankTotal) {
 			
@@ -79,11 +66,11 @@ public class PuntoBancoGame {
 		System.out.printf("%-20s", Bank);	
 		System.out.println();
 
-		PlayPrinCard();
-		BankPrinCard();
+		PlayPrinCard();//print card for player  
+		BankPrinCard();//print card for player  
 		System.out.println();	
-		PlayPrinCard();	
-		BankPrinCard();
+		PlayPrinCard();	//print card for player  
+		BankPrinCard();//print card for player  
 	
 	
 	if(bankTotal==8 || playerTotal== 8||bankTotal==9 || playerTotal == 8){	// 
@@ -151,23 +138,19 @@ public class PuntoBancoGame {
 		}
 	}else if(playerTotal>=0 && playerTotal<=5){ //player gets 3rd card 
 		System.out.println();	
-		PlayPrinCard();
+		PlayPrinCard();//print card for player  
 		System.out.println();	
 	}
-	CardDeck myDeck= new CardDeck();
-	Card currentCard =  myDeck.getDeck().remove(0);		
-	int playCard =currentCard.getRank();
+	PlayPrinCard();//print card for player  
 	 if(playCard>5 && playCard<8 ){ 
 		if(bankTotal >=0 && bankTotal <=5) {//bank gets 3rd card 
-		currentCard =  myDeck.getDeck().remove(0);
-		 System.out.printf("%-20s",currentCard);	
+			BankPrinCard();// print card for bank
 		}else if(bankTotal==6||bankTotal==7) {// bank stand
 			//Add empty outline if there is time 
 		}	
 	}else if(playCard==2||playCard==3){
 		if(bankTotal >=0 && bankTotal <=4) {//bank gets 3rd card 
-			currentCard =  myDeck.getDeck().remove(0);
-			 System.out.printf("%-20s",currentCard);	
+			BankPrinCard();// print card for bank
 			}else if(bankTotal>=5||bankTotal<=7) {// bank stand
 				//Add empty outline if there is time 
 			}	
@@ -175,8 +158,7 @@ public class PuntoBancoGame {
 
 		else if(playCard==4||playCard==5){
 			if(bankTotal >=0 && bankTotal <=5) {//bank gets 3rd card 
-				currentCard =  myDeck.getDeck().remove(0);
-				 System.out.printf("%-20s",currentCard);	
+				PlayPrinCard();//print card for player  
 				}else if(bankTotal>=6 ||bankTotal<=7) {// bank stand
 					//Add empty outline if there is time 
 				}	
@@ -184,16 +166,14 @@ public class PuntoBancoGame {
 
 		else if(playCard==6||playCard==7){
 			if(bankTotal >=0 && bankTotal <=6) {//bank gets 3rd card 
-				currentCard =  myDeck.getDeck().remove(0);
-				 System.out.printf("%-20s",currentCard);	
+				BankPrinCard();// print card for bank
 				}else if(bankTotal==7) {// bank stand
 					//Add empty outline if there is time 
 				}	
 		}
 		else if(playCard==8){
 			if(bankTotal >=0 && bankTotal <=2) {//bank gets 3rd card 
-				currentCard =  myDeck.getDeck().remove(0);
-				 System.out.printf("%-20s",currentCard);	
+				BankPrinCard();// print card for bank
 				}else if(bankTotal>=3||bankTotal<=7) {// bank stand
 					//Add empty outline if there is time 
 				}	
@@ -201,8 +181,7 @@ public class PuntoBancoGame {
 
 		else if(playCard==0||playCard==1||playCard==9){
 			if(bankTotal >=0 && bankTotal <=3) {//bank gets 3rd card 
-				currentCard =  myDeck.getDeck().remove(0);
-				 System.out.printf("%-20s",currentCard);	
+				BankPrinCard();// print card for bank	
 				}else if(bankTotal>=4||bankTotal<=7) {// bank stand
 					//Add empty outline if there is time 
 				}
