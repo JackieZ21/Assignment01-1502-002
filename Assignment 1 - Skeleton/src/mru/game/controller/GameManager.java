@@ -56,7 +56,7 @@ public class GameManager {
 		// create the file
 		launchApplication();
 		// shows the main menu
-		//cards();
+		
 	}
 /**
  * method contain switch case for main menu
@@ -155,38 +155,7 @@ public class GameManager {
  * @throws Exception 
  * 
  */
-/**
- 	private void FindTopPlayer() throws Exception {
-		// TODO Auto-generated method stub
-		  BufferedReader reader = new BufferedReader(new FileReader("CasinoInfo.txt"));
-		  ArrayList<Player> TopPlayer = new ArrayList<Player>();
-		File db = new File(FILE_PATH);
-		String currentLine;
-		String[] splittedLine;
-		if (db.exists()) {
-			fileReader = new Scanner(db);
-			// instantiate the scanner
-			while (fileReader.hasNextLine()) {
-				currentLine = fileReader.nextLine();
-				// read the file
-				splittedLine = currentLine.split(";");
-				// read the lines split with semi colon
-			
-				String name = splittedLine[0];
-				int balance = Integer.valueOf(splittedLine[1]);
-	            int Wins = Integer.valueOf(splittedLine[2]);
-	            TopPlayer.add(new Player(name,balance, Wins));
-	            currentLine = reader.readLine();
-	           Collections.sort(name, balance,new Wins(s2.marks - s1.marks));
-			}
-			
-
-		}
-
-		
-	}*/
-	
-	private void FindTopPlayer() {
+	private void FindopPlayer() {
 		Player play = new Player("res/CasinoInfo.txt",0,0);
 		
 		for(Player p: players) {
@@ -199,36 +168,6 @@ public class GameManager {
 		}
 		System.out.println(play);
 	}
-	
-	/**
-	 * 
-	 * @throws Exception
-	 *
-	
-	private void topPlayer() throws Exception {
-        Player equal= new Player("Default",0,0);
-        Player play = new Player("Default",0,0);
-        ArrayList<Player> list= new ArrayList<Player>();
-
-        for(Player p: players) {
-            if(p.getNumOfWins()>play.getNumOfWins()) {
-                play=p;
-            }
-        }
-
-        for(Player p: players) {
-            if(p.getNumOfWins()==play.getNumOfWins()) {
-                equal=p;
-                System.out.println(equal);
-
-            }
-        }
-
-    }
-	
-	
-	
-	*/
 	
 	
 	

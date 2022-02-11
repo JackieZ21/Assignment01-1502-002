@@ -1,5 +1,7 @@
 package mru.game.controller;
 
+import java.util.Scanner;
+
 import mru.game.view.GameMenu;
 /**
  * feb 10, 2022.
@@ -22,9 +24,16 @@ public class PuntoBancoGame {
 	 * PuntoBancoGame constructor instantiate the game Menu
 	 * and the launch Game
 	 */
+	Scanner input =new Scanner(System.in);
 	public PuntoBancoGame() {
+		
+			
 		gm=new GameMenu();
 		launchTGame();
+		 
+			 cards(bankTotal, bankTotal);
+			
+	
 	}
 	
 	/**
@@ -32,13 +41,13 @@ public class PuntoBancoGame {
 	 * @return amount Bet
 	 */
 	public boolean launchTGame() {
-		String betPBT;
+		char betPBT;
 		int betAmount;
 		boolean win=false;
 		
 		 betPBT=gm.showGameMenu();
 		 betAmount=gm.setBets();
-		 
+	
 		return win;
 	}
 /**

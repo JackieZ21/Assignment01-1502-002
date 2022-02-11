@@ -13,15 +13,25 @@ public class GameMenu {
 		input =new Scanner(System.in);
 		
 	}
-	public String showGameMenu() {
-		String choicePBT;
+	public char showGameMenu() {
+		char choicePBT;
+		
 		System.out.println("Please enter who you would like to bet on: ");
 		System.out.println("\t(P) Player");
 		System.out.println("\t(B) Banker");
 		System.out.println("\t(T) Tie \n");
-		System.out.print("Enter your choice here: ");
-		choicePBT=input.next();
 		
+		
+		do {
+			System.out.print("Enter your choice here: ");
+		    while (!input.hasNext()) {
+		        System.out.println("That's not a valid bet!");
+		        input.next(); // this is important!
+		    }
+		    choicePBT=input.next().charAt(0);;
+		} while (choicePBT !='p'&& choicePBT !='P' &&choicePBT!='b' && choicePBT !='B'&&choicePBT!='t'&&choicePBT!='T' );
+		
+		    
 		return choicePBT;
 		
 	}
