@@ -17,7 +17,7 @@ public class GameMenu {
 	}
 	public char showGameMenu() {
 		
-		do {
+		
 		
 		System.out.println("Please enter who you would like to bet on: ");
 		System.out.println("\t(P) Player");
@@ -32,14 +32,8 @@ public class GameMenu {
 		        input.next(); // this is important!
 		    }  choicePBT=input.next().charAt(0);
 		 
-			System.out.print("would like to play again?(y/n) ");
-			choicePBT=input.next().charAt(0);
-		    if (choicePBT=='n'&&choicePBT=='N') {
-		    	break;
-		    }
-		} while (choicePBT !='y'&& choicePBT !='Y' &&choicePBT!='N' && choicePBT !='n'&&choicePBT!='t'&&choicePBT!='T' );
-		
-		    
+			
+		  
 		return choicePBT;
 		
 	}

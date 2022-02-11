@@ -225,7 +225,7 @@ public class PuntoBancoGame {
 	System.out.println();
 	System.out.print("playerTotal:");
 	System.out.print(playerTotal);
-	System.out.print("BankTotal:");	
+	System.out.print("\tBankTotal:");	
 	System.out.print(bankTotal);
 	System.out.println();
 	winner( bankTotal,  playerTotal, balance);
