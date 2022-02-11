@@ -150,23 +150,59 @@ public class GameManager {
 		}
 		return ply;
 	}
+	
+	private void printHorizontalBoundary(String token) {
+		for (int i = 0; i < 75; i++) {
+			System.out.print(token);
+		}
+		System.out.println();
+	}
+	private void printHeader(String head) {
+		for (int i = 0; i < 30; i++) {
+			System.out.print(" ");
+		}
+		System.out.print("- " + head + " -");
+		for (int i = 0; i < 30; i++) {
+			System.out.print(" ");
+		}
+		System.out.println("");
+	}
 /**
  * method finds and prints top 2 players
  * @throws Exception 
  * 
  */
-	private void FindopPlayer() {
-		Player play = new Player("res/CasinoInfo.txt",0,0);
+	private void FindTopPlayer() {
+		if (players.size() == 0) {
+			System.out.println("No player found in database");
+			return;
+		}
+	
+		printHeader("TOP PLAYERS");
+		int maxScore = Integer.MIN_VALUE;
 		
-		for(Player p: players) {
-			if(p.getNumOfWins()> play.getNumOfWins()) {
-				play=p;
-				if(p.getNumOfWins()==play.getNumOfWins()) {
-					
-				}
+		for (Player p: players) {
+			if (p.getNumOfWins() > maxScore) {
+				maxScore = p.getNumOfWins();
 			}
 		}
-		System.out.println(play);
+		printHorizontalBoundary("=");
+		printOneLine("|NAME", "|# WINS");
+		printHorizontalBoundary("=");
+		for (Player p: players) {
+			if (p.getNumOfWins() == maxScore) {
+				printOneLine(p.getName(), Integer.toString(p.getNumOfWins()));
+				printHorizontalBoundary("-");
+			}
+		}		
+	}
+	/**
+	 * 
+	 * @param text1
+	 * @param text2
+	 */
+	private void printOneLine(String text1, String text2) {
+		System.out.printf("|%-36s|%-36s|\n", text1, text2);
 	}
 	
 	

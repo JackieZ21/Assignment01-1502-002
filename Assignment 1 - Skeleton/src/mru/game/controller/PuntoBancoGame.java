@@ -1,7 +1,5 @@
 package mru.game.controller;
-
-import java.util.Scanner;
-
+import mru.game.model.Player;
 import mru.game.view.GameMenu;
 /**
  * feb 10, 2022.
@@ -20,20 +18,17 @@ public class PuntoBancoGame {
 	CardDeck cd;//Card Deck initial
 	public int playerTotal=0;// player Total variable initial
 	public int bankTotal=0;//  bank Total variable initial
+	Player pl;
+	public int balance;
 	/**
 	 * PuntoBancoGame constructor instantiate the game Menu
 	 * and the launch Game
 	 */
-	Scanner input =new Scanner(System.in);
 	public PuntoBancoGame() {
-		
-			
+		pl = new Player(null, balance,0);		
 		gm=new GameMenu();
 		launchTGame();
-		 
-			 cards(bankTotal, bankTotal);
-			
-	
+		
 	}
 	
 	/**
@@ -47,7 +42,8 @@ public class PuntoBancoGame {
 		
 		 betPBT=gm.showGameMenu();
 		 betAmount=gm.setBets();
-	
+		 cards(bankTotal, bankTotal);
+		winner(bankTotal, playerTotal, balance);
 		return win;
 	}
 /**
@@ -63,7 +59,7 @@ public class PuntoBancoGame {
 		int playCard= currentCard.getRank();	
 		int modCard=playCard%10;// Rank to modulo 10 
 		playerTotal+=modCard; // add the modulo card to total
-		//System.out.println(playerTotal);	
+		//System.out.print(playerTotal);	
 		return playerTotal;
 		}
 	
@@ -80,7 +76,7 @@ public class PuntoBancoGame {
 		int playCard=currentCard.getRank();
 		int modCard=playCard%10;// Rank to mod 10 
 		bankTotal+=modCard;
-		System.out.println(bankTotal);	
+	//	System.out.print(bankTotal);	
 		return bankTotal;
 	}	
 
@@ -90,7 +86,6 @@ public class PuntoBancoGame {
 	 * @param bankTotalinput total for banker cards
 	 */
 		public void cards(int playerTotal, int bankTotal) {
-			
 			String Bank="Bank";
 			String Player="Player";
 			String bankWins ="Bank wins";
@@ -199,7 +194,7 @@ public class PuntoBancoGame {
 
 		else if(playCard==4||playCard==5){
 			if(bankTotal >=0 && bankTotal <=5) {//bank gets 3rd card 
-				PlayPrinCard();//print card for player  
+				BankPrinCard();// print card for bank
 				}else if(bankTotal>=6 ||bankTotal<=7) {// bank stand
 					//Add empty outline if there is time 
 				}	
@@ -227,8 +222,47 @@ public class PuntoBancoGame {
 					//Add empty outline if there is time 
 				}
 		}
-
+	System.out.println();
+	System.out.print("playerTotal:");
+	System.out.print(playerTotal);
+	System.out.print("BankTotal:");	
+	System.out.print(bankTotal);
+	System.out.println();
+	winner( bankTotal,  playerTotal, balance);
 	
+}
+	/**
+	 * method determine winner, print it to screen and add/subtract money to balance.
+	 * @param bankTotal
+	 * @param playerTotal
+	 * @param balance
+	 */
+public void winner(int bankTotal, int playerTotal,int balance) {
+	balance = pl.getBalance();
+	 int betAmount = gm.getBets();
+	char choicePBT =gm.showGameMenu();
+	if(choicePBT=='p'&&choicePBT=='P') {
+	 if(playerTotal>bankTotal) {
+		System.out.println("Player wins"+ betAmount);
+		balance+=betAmount;
+	}else 	if(playerTotal<bankTotal) {
+		System.out.println("Player lost"+ betAmount);
+		balance-=betAmount;
+	}}
+	
+	if(choicePBT=='b'&&choicePBT=='B') {
+		 if(playerTotal<bankTotal) {
+			System.out.println("banker wins"+ betAmount);
+			balance+=betAmount;
+		}else 	if(playerTotal>bankTotal) {
+			System.out.println("banker lost"+ betAmount);
+			balance-=betAmount;
+		}}
+	if(choicePBT=='t'&&choicePBT=='T') {
+		 if(playerTotal==bankTotal) {
+			System.out.println("Tie "+ betAmount);
+		
+		 }}
 	
 
 		}
