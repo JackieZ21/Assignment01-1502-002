@@ -1,7 +1,11 @@
 package mru.game.view;
 
 import java.util.Scanner;
-
+/**
+ * feb 10, 2022.
+ * @author obaida Daoud
+ * @author Jackie Zheng
+ */
 public class GameMenu {
 	Scanner input;
 	

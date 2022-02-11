@@ -3,7 +3,11 @@ package mru.game.view;
 import java.util.Scanner;
 
 import mru.game.model.Player;
-
+/**
+ * feb 10, 2022.
+ * @author obaida Daoud
+ * @author Jackie Zheng
+ */
 public class AppMenu {
 
 	/**

@@ -1,7 +1,12 @@
 package mru.game.controller;
 
 import mru.game.view.GameMenu;
-
+/**
+ * feb 10, 2022.
+ * @author obaida Daoud
+ * @author Jackie Zheng
+ * @version 1.0
+ */
 public class PuntoBancoGame {
 	
 	/**
@@ -9,14 +14,23 @@ public class PuntoBancoGame {
 	 * You should use CardDeck class here
 	 * See the instructions for the game rules
 	 */
-	GameMenu gm;
-	CardDeck cd;
+	GameMenu gm;//Game Menu initial
+	CardDeck cd;//Card Deck initial
+	public int playerTotal=0;// player Total variable initial
+	public int bankTotal=0;//  bank Total variable initial
+	/**
+	 * PuntoBancoGame constructor instantiate the game Menu
+	 * and the launch Game
+	 */
 	public PuntoBancoGame() {
 		gm=new GameMenu();
 		launchTGame();
 	}
 	
-	
+	/**
+	 * method to validate bets 
+	 * @return amount Bet
+	 */
 	public boolean launchTGame() {
 		String betPBT;
 		int betAmount;
@@ -27,31 +41,45 @@ public class PuntoBancoGame {
 		 
 		return win;
 	}
-
+/**
+ * method prints player's card 
+ * convert cards to modulo
+ *  add it to player Total 
+ * @return player Total
+ */
 	public int PlayPrinCard() {
-		int playerTotal=0;
 		CardDeck myDeck= new CardDeck();
 		Card currentCard =  myDeck.getDeck().remove(0);		
-		System.out.printf("%-20s",currentCard);	
-		int playCard=currentCard.getRank();
-		int modCard=playCard%10;// Rank to mod 10 
-		playerTotal+=modCard;
+		System.out.printf("%-20s",currentCard);
+		int playCard= currentCard.getRank();	
+		int modCard=playCard%10;// Rank to modulo 10 
+		playerTotal+=modCard; // add the modulo card to total
 		//System.out.println(playerTotal);	
 		return playerTotal;
-	}	
+		}
+	
+	/**
+	 * method prints banker card 
+	 * convert cards to modulo
+	 *  add it to banker Total 
+	 * @return banker Total
+	 */
 	public int BankPrinCard() {
-		int bankTotal=0;
 		CardDeck myDeck= new CardDeck();
 		Card currentCard =  myDeck.getDeck().remove(0);		
 		System.out.printf("%-20s",currentCard);	
 		int playCard=currentCard.getRank();
 		int modCard=playCard%10;// Rank to mod 10 
 		bankTotal+=modCard;
-		//System.out.println(bankTotal);	
+		System.out.println(bankTotal);	
 		return bankTotal;
 	}	
 
-	
+	/**
+	 * method contain the rules of the game 
+	 * @param playerTotal input total for player cards 
+	 * @param bankTotalinput total for banker cards
+	 */
 		public void cards(int playerTotal, int bankTotal) {
 			
 			String Bank="Bank";
@@ -59,9 +87,6 @@ public class PuntoBancoGame {
 			String bankWins ="Bank wins";
 			String playerWins="player wins";
 			
-			
-		
-		
 		System.out.printf("%-20s", Player);	
 		System.out.printf("%-20s", Bank);	
 		System.out.println();
@@ -139,10 +164,17 @@ public class PuntoBancoGame {
 	}else if(playerTotal>=0 && playerTotal<=5){ //player gets 3rd card 
 		System.out.println();	
 		PlayPrinCard();//print card for player  
-		System.out.println();	
+		
 	}
-	PlayPrinCard();//print card for player  
-	 if(playCard>5 && playCard<8 ){ 
+	
+	//
+	CardDeck myDeck= new CardDeck();
+	Card currentCard =  myDeck.getDeck().remove(0);	
+	int modCard=currentCard.getRank();
+	int playCard=modCard%10;// Rank to mod 10 
+	playerTotal+=playCard;
+	
+	if(playCard>5 && playCard<8 ){ 
 		if(bankTotal >=0 && bankTotal <=5) {//bank gets 3rd card 
 			BankPrinCard();// print card for bank
 		}else if(bankTotal==6||bankTotal==7) {// bank stand

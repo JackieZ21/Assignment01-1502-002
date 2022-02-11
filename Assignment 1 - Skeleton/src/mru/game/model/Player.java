@@ -1,5 +1,10 @@
 package mru.game.model;
-
+/**
+ * feb 10, 2022.
+ * @author obaida Daoud
+ * @author Jackie Zheng
+ * @version 1.0
+ */
 public class Player {
 	
 	/**

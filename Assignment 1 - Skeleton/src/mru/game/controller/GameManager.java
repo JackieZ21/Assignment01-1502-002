@@ -1,15 +1,23 @@
 package mru.game.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import mru.game.model.Player;
 import mru.game.view.AppMenu;
-
+/**
+ * feb 10, 2022.
+ * @author obaida Daoud
+ * @author Jackie Zheng
+ * @version 1.0
+ */
 public class GameManager {
 
 	/*
@@ -31,7 +39,13 @@ public class GameManager {
 	private final int INIT_BALANCE = 100;
 	private double runningBalance;
 	PuntoBancoGame pb;
-
+/**
+ * method Game Manager loads the arrayList and instantiate it.
+ * instantiate the appMenu.
+ * create the file.
+ *  shows the main menu.
+ * @throws Exception
+ */
 	public GameManager() throws Exception {
 		// instantiate the arraylist here
 		players = new ArrayList<>();
@@ -42,8 +56,12 @@ public class GameManager {
 		// create the file
 		launchApplication();
 		// shows the main menu
+		//cards();
 	}
-
+/**
+ * method contain switch case for main menu
+ * @throws IOException
+ */
 	private void launchApplication() throws IOException {
 		boolean flag = true;
 		char option = (char) appMenu.showMainMenu();
@@ -92,7 +110,10 @@ public class GameManager {
 		}
 
 	}
-
+/**
+ * method contain switch case for player search.
+ * @throws IOException
+ */
 	private void Search() throws IOException {
 		char option = appMenu.showSubMenu();
 		switch (option) {
@@ -113,7 +134,11 @@ public class GameManager {
 		}
 
 	}
-
+/**
+ * method search for players Name.
+ * @param name
+ * @return player name
+ */
 	private Player searchByName(String name) {
 
 		Player ply = null;
@@ -125,12 +150,92 @@ public class GameManager {
 		}
 		return ply;
 	}
-
-	private void FindTopPlayer() {
+/**
+ * method finds and prints top 2 players
+ * @throws Exception 
+ * 
+ */
+/**
+ 	private void FindTopPlayer() throws Exception {
 		// TODO Auto-generated method stub
+		  BufferedReader reader = new BufferedReader(new FileReader("CasinoInfo.txt"));
+		  ArrayList<Player> TopPlayer = new ArrayList<Player>();
+		File db = new File(FILE_PATH);
+		String currentLine;
+		String[] splittedLine;
+		if (db.exists()) {
+			fileReader = new Scanner(db);
+			// instantiate the scanner
+			while (fileReader.hasNextLine()) {
+				currentLine = fileReader.nextLine();
+				// read the file
+				splittedLine = currentLine.split(";");
+				// read the lines split with semi colon
+			
+				String name = splittedLine[0];
+				int balance = Integer.valueOf(splittedLine[1]);
+	            int Wins = Integer.valueOf(splittedLine[2]);
+	            TopPlayer.add(new Player(name,balance, Wins));
+	            currentLine = reader.readLine();
+	           Collections.sort(name, balance,new Wins(s2.marks - s1.marks));
+			}
+			
 
+		}
+
+		
+	}*/
+	
+	private void FindTopPlayer() {
+		Player play = new Player("res/CasinoInfo.txt",0,0);
+		
+		for(Player p: players) {
+			if(p.getNumOfWins()> play.getNumOfWins()) {
+				play=p;
+				if(p.getNumOfWins()==play.getNumOfWins()) {
+					
+				}
+			}
+		}
+		System.out.println(play);
 	}
+	
+	/**
+	 * 
+	 * @throws Exception
+	 *
+	
+	private void topPlayer() throws Exception {
+        Player equal= new Player("Default",0,0);
+        Player play = new Player("Default",0,0);
+        ArrayList<Player> list= new ArrayList<Player>();
 
+        for(Player p: players) {
+            if(p.getNumOfWins()>play.getNumOfWins()) {
+                play=p;
+            }
+        }
+
+        for(Player p: players) {
+            if(p.getNumOfWins()==play.getNumOfWins()) {
+                equal=p;
+                System.out.println(equal);
+
+            }
+        }
+
+    }
+	
+	
+	
+	*/
+	
+	
+	
+/**
+ * method Save after player Exits.
+ * @throws IOException
+ */
 	private void Save() throws IOException {
 		File db = new File(FILE_PATH);
 		PrintWriter pw = new PrintWriter(db);
@@ -141,7 +246,11 @@ public class GameManager {
 		System.out.println("saved, thank you for playing");
 		pw.close();
 	}
-
+/**
+ * method load old data
+ * add new player 
+ * @throws Exception
+ */
 	private void loadData() throws Exception {
 		File db = new File(FILE_PATH);
 		String currentLine;
