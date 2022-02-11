@@ -1,6 +1,8 @@
 package mru.test;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import mru.game.controller.Card;
@@ -44,5 +46,4 @@ public class cardTest {
 		assertEquals(playCard, playCard);
 	}
 	
-
 }

@@ -15,6 +15,10 @@ public class GameMenu {
 	 this.bet=bet;
 	this.choicePBT=choicePBT;
 	}
+	/**
+	 * method shows game menu with input validation.
+	 * @return bet choice 
+	 */
 	public char showGameMenu() {
 		
 		
@@ -28,8 +32,8 @@ public class GameMenu {
 		
 			System.out.print("Enter your choice here: ");
 		    while (!input.hasNext()) {
-		        System.out.println("That's not a valid bet!");
-		        input.next(); // this is important!
+		        System.out.println("That's not a valid choice!");
+		        input.next(); 
 		    }  choicePBT=input.next().charAt(0);
 		 
 			
@@ -37,6 +41,10 @@ public class GameMenu {
 		return choicePBT;
 		
 	}
+	/**
+	 * method set bets with input validation.
+	 * @return bet
+	 */
 	public int setBets() {
 		
 		
@@ -44,7 +52,7 @@ public class GameMenu {
 			System.out.println("How much would you like to bet?: ");
 		    while (!input.hasNextInt()) {
 		        System.out.println("That's not a valid bet!");
-		        input.next(); // this is important!
+		        input.next(); 
 		    }
 		    bet = input.nextInt();
 		} while (bet <= 0);
@@ -52,7 +60,10 @@ public class GameMenu {
 		return bet;
 		
 	}
-	
+	/**
+	 * method return the bet 
+	 * @return bet
+	 */
 	public int getBets() {
 		return bet;
 	}

@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import mru.game.controller.Card;
 import mru.game.controller.CardDeck;
+import mru.game.model.Player;
 
 public class cardTest {
 /**
@@ -34,16 +35,10 @@ public class cardTest {
 	 * this test is for the toString method
 	 */
 	@Test
-	public void toStringTest() {
-		CardDeck myDeck= new CardDeck();
-		Card currentCard =  myDeck.getDeck().remove(0);	
-		currentCard.setRank(12);
-		String testSuite="Diamond";
-		String playCard=currentCard.toString();	
-		currentCard.setSuit(testSuite);
-		assertEquals(playCard, testSuite);
-		
-	}
+    void testToStringPlayer() {
+        Player obj2 = new Player("Name", 10, 10);
+        assertEquals(obj2.toString(), "Name: NameBalance: 10Number of wins: 10");
+    }
 	
 	
 	

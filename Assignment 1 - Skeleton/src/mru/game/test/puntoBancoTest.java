@@ -1,6 +1,8 @@
 package mru.game.test;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import mru.game.controller.Card;
@@ -35,7 +37,9 @@ public class puntoBancoTest {
 		assertEquals(bankCard, p);
 	}
 	
-	
+	/**
+	 * test the card game rules.
+	 */
 	@Test
 	public void cardBuncoTest() {
 		PuntoBancoGame pbg=new PuntoBancoGame();
@@ -43,5 +47,12 @@ public class puntoBancoTest {
 		assertSame(pbg, pbg);
 	}
 	
+	
 
+	
+	
+	
+	
 }
+
+  

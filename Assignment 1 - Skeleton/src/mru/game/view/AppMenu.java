@@ -27,26 +27,44 @@ public class AppMenu {
 	 * this method shows the main menu which gives the user options to choose from 
 	 */
 	public int showMainMenu() {
+	char option;	do {
+		
 		System.out.println("Select one of the options below:\n");
 		System.out.println("\t(P). Play Game");
 		System.out.println("\t(S). Search");
 		System.out.println("\t(E). Save and Exit\n");
 		System.out.print("Enter a letter here: ");
 		//prints out users options to choose from 
-		char option = input.nextLine().toLowerCase().charAt(0);
+	
+		
+		  while (!input.hasNext()) {
+		        System.out.println("That's not a valid choice!");
+		        input.next(); 
+		    }  		 option = input.nextLine().toLowerCase().charAt(0);
+	}while(option!='s' && option!='S'&& option!='p'&& option!='P'&& option!='e'&& option!='E');
 		return option;
 	}
+	
+	
+	
 	/**
 	 * this method prints out the subMenu which gives the user more options to choose form
 	 */
 	public char showSubMenu() {
+		char option;
+		do {
 		System.out.println("Select one of the options below:\n");
 		System.out.println("\t(T) Top Player");
-		System.out.println("\t(S) Search by Name");
+		System.out.println("\t(N) Search by Name");
 		System.out.println("\t(B) Back to Main Menu \n");
 		System.out.print("Enter a letter here: ");
 		//Prints out the users choices in the subMenu
-		char option=input.nextLine().toLowerCase().charAt(0);
+		 while (!input.hasNext()) {
+		        System.out.println("That's not a valid choice!");
+		        input.next(); 
+		    }  		 option = input.nextLine().toLowerCase().charAt(0);
+	}while(option!='n' && option!='N'&& option!='B'&& option!='b'&& option!='t'&& option!='T');
+
 		return option;
 	}
 	/**
@@ -56,7 +74,12 @@ public class AppMenu {
 	public String prompName() {
 		System.out.println("Enter a name here: ");
 		//prompt user to enter name
-		String name=input.nextLine().trim();
+		String name;
+		 while (!input.hasNextLine()) {
+		        System.out.println("That's not a valid name!");
+		        input.next(); 
+		    }  		 name=input.nextLine().trim();
+
 		//save the name into name variable
 		return name;
 		//return the users name

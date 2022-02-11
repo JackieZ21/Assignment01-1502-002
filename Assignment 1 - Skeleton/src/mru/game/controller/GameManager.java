@@ -77,8 +77,8 @@ public class GameManager {
 			case 'e':
 				Save();
 				flag = false;
-
-			}
+	
+			}		
 		}
 	}
 
@@ -120,7 +120,7 @@ public class GameManager {
 		case 't':
 			FindTopPlayer();
 			break;
-		case 's':
+		case 'n':
 			String name = appMenu.prompName();
 			Player ply = searchByName(name);
 			appMenu.showPlayer(ply);
@@ -140,7 +140,6 @@ public class GameManager {
  * @return player name
  */
 	private Player searchByName(String name) {
-
 		Player ply = null;
 		for (Player p : players) {
 			if (p.getName().equals(name)) {
@@ -148,6 +147,7 @@ public class GameManager {
 				break;
 			}
 		}
+		System.out.println( "name does not exist");
 		return ply;
 	}
 	

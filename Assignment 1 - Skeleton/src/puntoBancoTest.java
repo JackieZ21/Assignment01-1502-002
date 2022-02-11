@@ -8,7 +8,7 @@ import mru.game.controller.PuntoBancoGame;
 
 public class puntoBancoTest {
 /**
- * this test is for the prin card method
+ * this test is for the print card method
  */
 	@Test
 	public void playPrinCard() {
